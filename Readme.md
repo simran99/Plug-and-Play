@@ -9,8 +9,7 @@ Jobs
 Three Apps
 
 1. Connects the worker nodes
-2.
-Master Server interface for uploading jobs
+2. Master Server interface for uploading jobs
 3. Monitoring the workers
 
 
