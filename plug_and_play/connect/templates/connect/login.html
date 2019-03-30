@@ -1,0 +1,37 @@
+{% extends 'connect/login-layout.html' %}
+{% block content %}
+
+ <div class="container pt-lg-md">
+        <div class="row justify-content-center">
+          <div class="col-lg-5">
+            <div class="card bg-secondary shadow border-0">
+              <div class="card-header bg-white pb-5">
+                <div class="text-muted text-center mb-3">
+                  <h3> Connect with Worker Nodes</h3>
+                </div>
+              
+          <form role="form"  action=" " method = "post">
+           <br><br><br>
+          
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input class="form-control" placeholder="Password"  name="password"  type="password">
+              </div>
+            </div>
+            
+                  <div class="text-center">
+                    <button type="submit" class="btn btn-primary my-4">Connect</button>
+                  </div>
+                </form>
+              </div>
+            </div>
+           
+          </div>
+        </div>
+      </div>
+
+
+{% endblock %}      
