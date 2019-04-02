@@ -10,7 +10,8 @@
                   <h3> Connect with Worker Nodes</h3>
                 </div>
               
-          <form role="form"  action=" " method = "post">
+          <form role="form"  action="{% url 'connect:login' %}" method = "post">
+            {% csrf_token %}
            <br><br><br>
           
             <div class="form-group">
@@ -23,7 +24,7 @@
             </div>
             
                   <div class="text-center">
-                    <button type="submit" class="btn btn-primary my-4">Connect</button>
+                    <input type="submit" class="btn btn-primary my-4" value="login"></input>
                   </div>
                 </form>
               </div>
