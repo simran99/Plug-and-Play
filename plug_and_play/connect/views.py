@@ -28,18 +28,27 @@ def login(request):
 			    ip = request.META.get('REMOTE_ADDR')
 			request.session['ip'] = ip
 			print(request.session['ip'])
+			worker_node = worker(worker_ip=request.session['ip'],last_ping=timezone.now() , status=1)    
+			worker_node.save()
 			return redirect(reverse('connect:dashboard'))  
 		else:
 			messages.add_message(request, messages.ERROR, 'Invalid password')
 			return render(request,'connect/login.html')	
 	else:
+		try:
+			if request.session['ip']!=None:
+				print(request.session['ip'])
+			worker.objects.filter(worker_ip=request.session['ip']).delete()
+			logout(request)
+		except Exception as e:
+			print(e)
 		return render(request,'connect/login.html')	
 			
 
 def dashboard(request):
 	if request.session['ip']==None:
 		redirect(reverse('connect:login'))
-
+	print(request.session['ip'])
 	# x_forward_for = request.META.get('HTTP_X_FORWARDED_FOR')
 	# ip = request.META.get('HTTP_X_FORWARDED_FOR')
 	# if x_forward_for:
@@ -47,8 +56,6 @@ def dashboard(request):
 	# else:
 	#     ip = request.META.get('REMOTE_ADDR')
 
-	worker_node = worker(worker_ip=request.session['ip'],last_ping=timezone.now() , status=1)    
-	worker_node.save()
 	# request.session['id']=worker_node.id
 	return render(request,'connect/dashboard.html')
 
