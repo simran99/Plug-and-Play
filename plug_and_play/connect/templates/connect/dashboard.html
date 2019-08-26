@@ -1,13 +1,23 @@
-{% extends 'connect/login-layout.html' %}
-{% block content1 %}
-<ul class="navbar-nav navbar-nav-hover align-items-lg-center">
-            <li class="nav-item dropdown">
-              <a href="{% url 'connect:logout' %}" class="nav-link"  role="button">
-                <span class="nav-link-inner--text">Logout</span>
-              </a>
-            </li>
-</ul>
+{% extends 'common-layout.html' %}
 
+{% block action %}
+<li><a href="{% url 'connect:logout' %}">Logout <i class="fas fa-user-plus"></i></a></li>
+<li><a href="/master">Admin <i class="fas fa-user"></i></a></li>
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-12">
+			<div id="content">
+				<h3>Hey  {{request.session.ip}}  !!</h3>
+				<hr>
+				<h3>YOU ARE CURRENTLY CONTRIBUTING</h3>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 {% endblock %}      
