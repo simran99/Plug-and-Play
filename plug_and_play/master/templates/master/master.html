@@ -1,0 +1,32 @@
+{% extends 'common-layout.html' %}
+{% block navbar %}
+<li><a href="/home">Home</a></li>
+<li><a href="about">About</a></li>
+<li><a href="contact">Contact</a></li>
+{% endblock %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="content">
+        <h1>Welcome to <span style="color:red">MASTER</span> Node</h1>
+        <h3>All ontributing nodes</h3>
+        
+        <table class="table">
+          <tbody style="color: white;">
+            {% for worker in workers %}
+            <tr>
+              <td>{{worker.worker_ip}}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}      

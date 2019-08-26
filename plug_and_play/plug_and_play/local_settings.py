@@ -1,0 +1,2 @@
+DATABASE_USER = 'root'
+DATABASE_PASSWORD = 'amwneb1928'

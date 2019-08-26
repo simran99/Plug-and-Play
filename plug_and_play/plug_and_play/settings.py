@@ -26,7 +26,7 @@ SECRET_KEY = 'qlg*2dip25_ar=8lo9i6*vopj%t6hkf!#a#5rtxhudc2&pb$)%'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.43.49','0.0.0.0','127.0.0.1']
 
 
 # Application definition
@@ -37,6 +37,8 @@ AUTHENTICATION_BACKENDS = (
 )
 INSTALLED_APPS = [
     'connect.apps.ConnectConfig',
+    'master.apps.MasterConfig',
+    'home.apps.HomeConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -46,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',
     'allauth',
     'allauth.account',
+    'background_task',
 
 ]
 
@@ -66,7 +69,7 @@ ROOT_URLCONF = 'plug_and_play.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -133,6 +136,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/') # 'data' is my media folder
+MEDIA_URL = '/media/'
 
 try:
    from .local_settings import *
