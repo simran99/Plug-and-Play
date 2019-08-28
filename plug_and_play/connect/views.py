@@ -46,7 +46,6 @@ def login(request):
 def dashboard(request):
 	if request.session['ip']:
 		redirect(reverse('connect:login'))
-	check(request.session['ip'])
 	return render(request,'connect/dashboard.html')
 
 def showtext(request):

@@ -6,7 +6,7 @@
 {% endblock %}
 {% block action %}
 <li><a href="/">Login <i class="fas fa-user-plus"></i></a></li>
-<li><a href="/master/login_master">Admin <i class="fas fa-user"></i></a></li>
+<li><a href="/master">Admin <i class="fas fa-user"></i></a></li>
 {% endblock %}
 {% block content %}
 
@@ -14,8 +14,8 @@
   <div class="row">
     <div class="col-lg-12">
       <div id="content">
-        <h3> Connect with Worker Nodes</h3>
-        <form role="form"  action="{% url 'connect:login' %}" method = "post">
+        <h3> Connect with Master</h3>
+        <form role="form"  action="{% url 'master:login_master' %}" method = "post">
           {% csrf_token %}
           <br><br><br>
 
